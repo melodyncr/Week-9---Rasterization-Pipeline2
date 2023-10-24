@@ -20,7 +20,8 @@ window.onload = window['initializeAndStartRendering'];
 
 // we need to asynchronously fetch files from the "server" (your local hard drive)
 var loadedAssets = {
-    unlitColorVS: null, unlitColorFS: null,
+    unlitColorVS: null,
+    unlitColorFS: null,
     sphereJSON: null
 };
 
@@ -106,9 +107,13 @@ function createScene() {
 
     // todo #1 - translate the quad so you can see it
     // groundGeometry.worldMatrix...
+    groundGeometry.worldMatrix.translate(0, 0, -10);
 
     // todo #2 - rotate and scale the quad to make it "ground-like"
 
+    groundGeometry.worldMatrix.scale(10, 1, 10);
+    groundGeometry.worldMatrix.rotate(-90, 1, 0, 0);
+    groundGeometry.worldMatrix.translate(0, -1, 0);
     // todo #3 - create the sphere geometry
     // sphereGeometry = ?
     // sphereGeometry.create(?);
